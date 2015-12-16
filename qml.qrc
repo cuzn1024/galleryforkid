@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>BlackButtonBackground.qml</file>
+        <file>BlackButtonStyle.qml</file>
+        <file>MainToolbar.qml</file>
+        <file>SettingsMenuView.qml</file>
+        <file>ControlView.qml</file>
+        <file>FlickableMoreIndicator.qml</file>
+        <file>GalleryHierarchyView.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>icon-go.png</file>
+        <file>icon-back.png</file>
+        <file>icon-settings.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>OpenSans-Regular.ttf</file>
+    </qresource>
+</RCC>
