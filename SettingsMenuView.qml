@@ -106,7 +106,7 @@ Rectangle {
                 text: "Add"
 
                 onClicked: {
-                    gallery.createGallery("", "");
+                    gallery.createGallery(txtUserName.text(), txtPassword.text());
                 }
             }
 

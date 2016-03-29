@@ -17,6 +17,8 @@ SOURCES += main.cpp \
 
 RESOURCES += qml.qrc
 
+INCLUDEPATH += /usr/local/ssl/include
+
 LIBS+=-L/usr/lib/ -lcurl -lm -lcrypto
 
 HEADERS += \

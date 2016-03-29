@@ -1,7 +1,10 @@
 #include "qiniuaccess.h"
 
-#include <QNetworkRequest>
 #include <QFile>
+#include <QEventLoop>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
 
 #include "qiniu/main/base.h"
 #include "qiniu/main/io.h"
@@ -92,13 +95,16 @@ void QiniuAccess::uploadDir()
 
 void QiniuAccess::downloadDir()
 {
-    printf("downloadDir\n");
-    QFile::copy("http://7xksjc.com1.z0.glb.clouddn.com/cuzn.dir", "./");
-//    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-//    connect(manager, SIGNAL(finished(QNetworkReply*)),
-//            this, SLOT(replyFinished(QNetworkReply*)));
+    qDebug()<<"downloadDir";
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
-//    manager->get(QNetworkRequest(QUrl("http://7xksjc.com1.z0.glb.clouddn.com/cuzn.dir")));
+    QEventLoop eventLoop;
+
+    QNetworkReply *reply = manager->get(QNetworkRequest(QUrl("http://7xksjc.com1.z0.glb.clouddn.com/cuzn.dir")));
+    connect(reply, SIGNAL(readyRead()), &eventLoop, SLOT(quit()));
+
+    eventLoop.exec();
+    qDebug()<<reply->readAll();
 }
 
 void QiniuAccess::preloadGallery()
